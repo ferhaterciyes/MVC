@@ -5,6 +5,11 @@
 - json-server
 - tailwind
 
+# Ekran Gifi Eklendi 
+
+![Proje Ekran Görüntüsü](ekranGifi.gif)
+
+
 # MVC (Model - View Controller)
 
 - Model:
