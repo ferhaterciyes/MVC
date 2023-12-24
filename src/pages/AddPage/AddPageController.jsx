@@ -2,6 +2,7 @@ import AddPageView from "./AddPageView";
 import Model from "./AddPageModel";
 import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddPageController = () => {
   // form gönderilince calışır
@@ -15,9 +16,12 @@ const AddPageController = () => {
     formData.id = v4();
     // api ye veriyi kaydet
     Model.createPost(formData)
-    //kullanıcıyı anasayfaya yönlendir
-    .then(()=>navigate("/"))
-    
+      //kullanıcıyı anasayfaya yönlendir
+      .then(() =>{
+        toast.success("Post ekleme başarılı")
+        navigate("/")})
+
+      .catch(()=>toast.error("Post Gönderirken hata oluştu"))
   };
 
   return <AddPageView handleSubmit={handleSubmit} />;
